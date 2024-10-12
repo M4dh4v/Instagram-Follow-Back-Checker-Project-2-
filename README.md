@@ -8,6 +8,9 @@ Go to accounts-ex.py -- follow the instructions there
 
 navigate to the current directory in your terminal
 run -- python main.py
+
+
+
 ----
 Ignore this in the console
 ----
