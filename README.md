@@ -13,6 +13,8 @@ run -- python main.py
 
 ----
 Ignore this in the console
+
+
 ----
 
 DevTools listening on .....
@@ -21,8 +23,12 @@ Attempting to use a delegate that only supports static-sized tensors with a grap
 
 
 Anything after this will be our main code
+
+
 ----
 Main Working
+
+
 ----
 
 if we are using default -- (get_list_ver2 is running):
