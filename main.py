@@ -6,15 +6,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-from accounts import username,password
 
 
-usr=username
-p=password
+usr=""
+p=""
 
 def main():
     serv=Service(executable_path="resources/chromedriver-win64/chromedriver.exe")
     driver = webdriver.Chrome(service=serv)
+
+    global usr , p
+
+    usr=input("Enter your instagram username: ")
+    p=input("Enter your instagram password: ")
 
     login(driver)
 

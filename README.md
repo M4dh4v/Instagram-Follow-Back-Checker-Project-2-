@@ -1,14 +1,15 @@
 Basically this program will show the username of people who you follow but they do not follow you back.
 
+THIS PROGRAM IS COMPLTELY RUNNING INDEPENDENT OF ANY SERVERS, YOUR DETAILS ARE USE ONLY FOR THIS LOGIN AND YOU MAY REMOVE THE DEVICE FROM YOUR 'Where I am logged in' AFTER YOU ARE DONE WITH YOU PURPOSE
+
 Needed --> python,pip
 
 run -- pip install -r requirements.txt
 
-Go to accounts-ex.py -- follow the instructions there
-
 navigate to the current directory in your terminal
 run -- python main.py
 
+It will ask you for username and passwords
 
 
 ----
