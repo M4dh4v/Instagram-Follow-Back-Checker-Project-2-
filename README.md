@@ -35,7 +35,7 @@ Main Working
 if we are using default -- (get_list_ver2 is running):
 - You will be stopped at the followers dialog box
 - You NEED to scroll down and it will automatically go to the bottom of the next batch
-- Continue scrolling down which will add new element
+- Continue scrolling down which will add new elements
 
     IF U REACH THE END OF YOUR FOLLOWERS LIST AND IT IS STUCK FOR 5 SECONDS
     THIS IS YOUR SIGN TO USE -- get_list_ver1
