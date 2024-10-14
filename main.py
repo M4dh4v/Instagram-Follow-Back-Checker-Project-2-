@@ -5,32 +5,34 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
+import tkinter as tk
 import time
-
 
 usr=""
 p=""
 
 def main():
+    
+
     serv=Service(executable_path="resources/chromedriver-win64/chromedriver.exe")
     driver = webdriver.Chrome(service=serv)
 
-    global usr , p
+    # x="n"
 
-    usr=input("Enter your instagram username: ")
-    p=input("Enter your instagram password: ")
+    # while x !="y":
+    #     usr=input("Enter your instagram username: ")
+    #     p=input("Enter your instagram password: ")
+    #     x=input("Are you sure? (y/n): ")
 
+    accept()
     login(driver)
 
     time.sleep(5)
 
     driver.get("https://www.instagram.com/"+usr)
 
-    time.sleep(2)
-
     followers_list=get_list(driver, "followers")
     driver.get("https://www.instagram.com/"+usr)
-    time.sleep(3)
     following_list=get_list(driver, "following")
 
     print("\n\nAccounts that do not follow "+usr+" back")
@@ -50,7 +52,6 @@ def main():
 def login(driver):
     driver.get("https://www.instagram.com")
 
-    time.sleep(2)
     WebDriverWait(driver, 10).until(
         ec.presence_of_element_located((By.NAME, "username"))
     )
@@ -66,6 +67,11 @@ def login(driver):
 
 
 def get_list(driver, str):
+
+
+    WebDriverWait(driver, 10).until(
+        ec.presence_of_element_located((By.CSS_SELECTOR, "a[href*='"+usr+"/"+str+"']"))
+    )
 
     f1=driver.find_element(By.CSS_SELECTOR, "a[href*='" +usr +"/"+str+"']")
 
@@ -98,6 +104,7 @@ def scroll(driver):
     liElement = driver.find_element(By.XPATH, "//div[@style='display: flex; flex-direction: column; padding-bottom: 0px; padding-top: 0px; position: relative;']")
     driver.execute_script("arguments[0].scrollIntoView(false);", liElement)
 
+
 def get_list_ver1(str, driver):
     while True:
         time.sleep(3)
@@ -113,19 +120,40 @@ def get_list_ver1(str, driver):
 
 def get_list_ver2(str,driver,size):
     ff=driver.find_elements(By.CSS_SELECTOR, "span._ap3a._aaco._aacw._aacx._aad7._aade")
+    x=10
     while True:
         if len(ff)==size:
             return(ff)
         else:
             scroll(driver)
             # print("scroll down")
-            time.sleep(1)
             ff2=driver.find_elements(By.CSS_SELECTOR, "span._ap3a")
             if len(ff2)>=len(ff):
                 ff=ff2
 
 
+def accept():
+    root =tk.Tk()
+    root.title("Login Details")
 
+    tk.Label(root, text="Email/Username: ").grid(row=0,column=0)
+    m_entry=tk.Entry(root,width=30)
+    m_entry.grid(row=0,column=1)
+
+    tk.Label(root, text="Password: ").grid(row=1, column=0)
+    pwd_entry=tk.Entry(root, width=30, show="*")
+    pwd_entry.grid(row=1, column=1)
+
+    def assign():
+        email = m_entry.get()
+        pwd=pwd_entry.get()
+        global usr,p
+        usr=email
+        p=pwd
+        root.destroy()
+
+    tk.Button(root, text="Submit", command=assign).grid(row=2, column=1)
+    root.mainloop()
 
 if __name__=="__main__":
     main()

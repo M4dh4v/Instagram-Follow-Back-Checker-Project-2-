@@ -2,14 +2,14 @@ Basically this program will show the username of people who you follow but they 
 
 THIS PROGRAM IS COMPLTELY RUNNING INDEPENDENT OF ANY SERVERS, YOUR DETAILS ARE USE ONLY FOR THIS LOGIN AND YOU MAY REMOVE THE DEVICE FROM YOUR 'Where I am logged in' AFTER YOU ARE DONE WITH YOU PURPOSE
 
-Needed --> python,pip
+Needed --> python 3.X
 
 run -- pip install -r requirements.txt
 
 navigate to the current directory in your terminal
 run -- python main.py
 
-It will ask you for username and passwords
+It will ask you for username and passwords in a gui dialog box
 
 
 ----
