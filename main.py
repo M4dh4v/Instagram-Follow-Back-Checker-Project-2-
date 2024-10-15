@@ -27,7 +27,7 @@ def main():
     accept()
     login(driver)
 
-    time.sleep(5)
+    time.sleep(7)
 
     driver.get("https://www.instagram.com/"+usr)
 
@@ -37,7 +37,7 @@ def main():
 
     print("\n\nAccounts that do not follow "+usr+" back")
 
-    x=max(len(following_list), len(followers_list))
+    x=len(following_list)
     for i in range(x):
         if following_list[i] not in followers_list:
             print(following_list[i])
@@ -80,8 +80,8 @@ def get_list(driver, str):
     time.sleep(2)
     size=int(f1.text.split(" ")[0])
 
-    #ff=get_list_ver1(str,driver)
-    ff=get_list_ver2(str,driver,size)
+    ff=get_list_ver1(str,driver)
+    # ff=get_list_ver2(str,driver,size)
 
     """
     I have no idea why get_list_ver2 fails but it does sometimes, i tried an acc
@@ -152,7 +152,7 @@ def accept():
         p=pwd
         root.destroy()
 
-    tk.Button(root, text="Submit", command=assign).grid(row=2, column=1)
+    tk.Button(root, text="Submit", command=assign).grid(row=3, column=1)
     root.mainloop()
 
 if __name__=="__main__":
